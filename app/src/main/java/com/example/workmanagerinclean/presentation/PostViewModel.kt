@@ -19,8 +19,8 @@ class PostViewModel @Inject constructor(private val repo: PostRepository) : View
     private fun getPost() {
         viewModelScope.launch {
             repo.getPost().collect{
-                if(it.state == WorkInfo.State.SUCCEEDED){
-                    val outPut = it.outputData.getString("responseString")
+                if(it.first == "Success"){
+                    val outPut = it.second
                 }
             }
         }
